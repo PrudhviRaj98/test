@@ -577,15 +577,81 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 var _moment = require("moment");
 var _momentDefault = parcelHelpers.interopDefault(_moment);
+var _lodash = require("lodash");
+var _lodashDefault = parcelHelpers.interopDefault(_lodash);
 const lodash = require("24b7e7a08980afb4");
-let moment = require("221203a42b229400");
+//let moment = require('moment');
 console.log((0, _momentDefault.default)().format("MMMM Do YYYY, h:mm:ss a"));
 console.log((0, _momentDefault.default)().format("MMM Do YY"));
-if ((0, _momentDefault.default)("2020-01-01", "YYYY-MM-DD").isValid() != (0, _momentDefault.default).format("YYYY-MM-DD")) return false;
-else return true;
-console.log((0, _momentDefault.default)("2023", "YYYY-MM-DD").isValid());
+console.log((0, _momentDefault.default)().format("dddd"));
+console.log((0, _momentDefault.default)().isValid("2020-01-01"));
+console.log((0, _momentDefault.default)().isValid("2020-14-01"));
+console.log((0, _momentDefault.default)().add(7, "d"));
+console.log((0, _momentDefault.default)().add(7, "M"));
+console.log((0, _momentDefault.default)().add(7, "y"));
+console.log((0, _momentDefault.default)().subtract(7, "days"));
+console.log((0, _momentDefault.default)().subtract(7, "months"));
+console.log((0, _momentDefault.default)().subtract(7, "year"));
+let a = (0, _momentDefault.default)([
+    2015,
+    09,
+    11
+]);
+let b = (0, _momentDefault.default)([
+    2014,
+    11,
+    11
+]);
+console.log(a.diff(b, "years"));
+console.log(a.diff(b, "months"));
+console.log(a.diff(b, "days"));
+let c = (0, _momentDefault.default)([
+    2015,
+    09,
+    16
+]);
+let d = (0, _momentDefault.default)([
+    2014,
+    11,
+    27
+]);
+console.log(c.diff(d, "years"));
+console.log(c.diff(d, "months"));
+console.log(c.diff(d, "days"));
+console.log((0, _lodashDefault.default).chunk([
+    "a",
+    "b",
+    "c",
+    "d"
+], 2));
+console.log((0, _lodashDefault.default).difference([
+    2,
+    1
+], [
+    2,
+    3
+]));
+console.log((0, _lodashDefault.default).every(users, {
+    "user": "barney",
+    "active": false
+}));
+var users = [
+    {
+        "user": "barney",
+        "age": 36,
+        "active": true
+    },
+    {
+        "user": "fred",
+        "age": 40,
+        "active": false
+    }
+];
+console.log((0, _lodashDefault.default).filter(users, function(o) {
+    return !o.active;
+}));
 
-},{"moment":"jwcsj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","24b7e7a08980afb4":"3qBDj","221203a42b229400":"jwcsj"}],"jwcsj":[function(require,module,exports) {
+},{"moment":"jwcsj","24b7e7a08980afb4":"3qBDj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","lodash":"3qBDj"}],"jwcsj":[function(require,module,exports) {
 //! moment.js
 //! version : 2.29.4
 //! authors : Tim Wood, Iskren Chernev, Moment.js contributors
@@ -4292,36 +4358,6 @@ console.log((0, _momentDefault.default)("2023", "YYYY-MM-DD").isValid());
     };
     return hooks;
 });
-
-},{}],"gkKU3":[function(require,module,exports) {
-exports.interopDefault = function(a) {
-    return a && a.__esModule ? a : {
-        default: a
-    };
-};
-exports.defineInteropFlag = function(a) {
-    Object.defineProperty(a, "__esModule", {
-        value: true
-    });
-};
-exports.exportAll = function(source, dest) {
-    Object.keys(source).forEach(function(key) {
-        if (key === "default" || key === "__esModule" || dest.hasOwnProperty(key)) return;
-        Object.defineProperty(dest, key, {
-            enumerable: true,
-            get: function() {
-                return source[key];
-            }
-        });
-    });
-    return dest;
-};
-exports.export = function(dest, destName, get) {
-    Object.defineProperty(dest, destName, {
-        enumerable: true,
-        get: get
-    });
-};
 
 },{}],"3qBDj":[function(require,module,exports) {
 var global = arguments[3];
@@ -18554,6 +18590,36 @@ var global = arguments[3];
     } else // Export to the global object.
     root._ = _;
 }).call(this);
+
+},{}],"gkKU3":[function(require,module,exports) {
+exports.interopDefault = function(a) {
+    return a && a.__esModule ? a : {
+        default: a
+    };
+};
+exports.defineInteropFlag = function(a) {
+    Object.defineProperty(a, "__esModule", {
+        value: true
+    });
+};
+exports.exportAll = function(source, dest) {
+    Object.keys(source).forEach(function(key) {
+        if (key === "default" || key === "__esModule" || dest.hasOwnProperty(key)) return;
+        Object.defineProperty(dest, key, {
+            enumerable: true,
+            get: function() {
+                return source[key];
+            }
+        });
+    });
+    return dest;
+};
+exports.export = function(dest, destName, get) {
+    Object.defineProperty(dest, destName, {
+        enumerable: true,
+        get: get
+    });
+};
 
 },{}]},["a3uqb","am6Pv"], "am6Pv", "parcelRequirefc40")
 
